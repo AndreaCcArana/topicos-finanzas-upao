@@ -1,0 +1,15 @@
+# Entornos y caché de Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Archivos de sistema y editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Datos descargados y credenciales
+*.env
+data/descargas/

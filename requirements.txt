@@ -1,0 +1,13 @@
+# Entorno del curso Tópicos de Finanzas Avanzadas (Python 3.12+)
+numpy
+pandas
+matplotlib
+scipy
+statsmodels
+scikit-learn
+arch
+yfinance
+requests
+jupyter
+ipykernel
+openpyxl
