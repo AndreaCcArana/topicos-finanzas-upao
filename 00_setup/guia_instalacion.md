@@ -69,11 +69,11 @@ git config --global user.email "tucorreo@ejemplo.com"
 
 El material del curso vive en un repositorio público. Tú trabajarás sobre **tu propia copia** (un *fork*).
 
-1. **Fork (una sola vez):** entra al repositorio del curso (el enlace está en el aula virtual), haz clic en el botón **Fork** (arriba a la derecha)  *Create fork*. Ahora existe `github.com/TU-USUARIO/finanzas-avanzadas-cfa2-python`.
+1. **Fork (una sola vez):** entra al repositorio del curso (el enlace está en el aula virtual), haz clic en el botón **Fork** (arriba a la derecha)  *Create fork*. Ahora existe `github.com/TU-USUARIO/topicos-finanzas-upao`.
 2. **Clonar tu fork (una sola vez):**
    - En tu fork, botón verde **Code**  pestaña HTTPS  copia la URL.
    - En VS Code: `Ctrl+Shift+P`  escribe **Git: Clone**  pega la URL  elige una carpeta (p. ej. `Documentos\finanzas-avanzadas`)  *Open* cuando pregunte.
-3. Ya tienes el curso en tu PC. En el explorador de VS Code verás las carpetas `01_regresion_multiple`, `utils`, etc.
+3. Ya tienes el curso en tu PC. En el explorador de VS Code verás las carpetas `01_fundamentos_valor`, `utils`, etc.
 
 # Paso 6: Crear el entorno del curso e instalar las librerías
 
@@ -89,7 +89,7 @@ pip install -r requirements.txt
 - Si la activación da un error de "ejecución de scripts deshabilitada", abre PowerShell como administrador y ejecuta `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`, luego reintenta.
 - La tercera instala todas las librerías del curso (pandas, statsmodels, yfinance, arch, scikit-learn, etc.). Tarda unos minutos.
 
-Por último, abre `01_regresion_multiple/practica.ipynb`. Arriba a la derecha del notebook haz clic en **Select Kernel**  *Python Environments*  elige **.venv**. Ejecuta la primera celda con `Shift+Enter`. Si corre sin errores: tu entorno está listo.
+Por último, abre `01_fundamentos_valor/clase01_practica.ipynb`. Arriba a la derecha del notebook haz clic en **Select Kernel**  *Python Environments*  elige **.venv**. Ejecuta la primera celda con `Shift+Enter`. Si corre sin errores: tu entorno está listo.
 
 # Paso 7: El flujo de cada semana
 
