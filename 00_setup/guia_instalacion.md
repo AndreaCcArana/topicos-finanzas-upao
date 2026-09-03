@@ -134,3 +134,5 @@ Por último, abre `01_regresion_multiple/practica.ipynb`. Arriba a la derecha de
 - [ ] Fork del repo del curso creado y clonado en tu PC
 - [ ] `.venv` creado, `requirements.txt` instalado y el notebook de la semana 1 corre
 - [ ] Primer commit + push hecho (aparece en tu fork en github.com)
+
+- [ ] Esto es algo nuevo
