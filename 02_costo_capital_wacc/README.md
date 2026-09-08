@@ -19,5 +19,6 @@ Estimación de beta con statsmodels, beta apalancado/desapalancado y WACC de una
 | Archivo | Descripción |
 |---|---|
 | `clase02_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase02_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase02_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase02_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

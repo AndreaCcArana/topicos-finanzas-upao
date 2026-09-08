@@ -18,5 +18,6 @@ Notebook integrador: pipeline datos  valoración  portafolio  escenario usando t
 | Archivo | Descripción |
 |---|---|
 | `clase15_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase15_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase15_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase15_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

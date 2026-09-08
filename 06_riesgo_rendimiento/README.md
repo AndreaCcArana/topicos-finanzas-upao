@@ -18,5 +18,6 @@ Retornos y volatilidades de un universo BVL + US, matriz de correlaciones y efec
 | Archivo | Descripción |
 |---|---|
 | `clase06_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase06_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase06_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase06_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

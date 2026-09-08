@@ -12,9 +12,9 @@ Curso de pregrado del programa de **Economía y Negocios Internacionales - UPAO*
 
 ## Unidades
 
-1. **Técnicas avanzadas de valorización** (sem 1–5): WACC, DCF (FCFF/FCFE), valor terminal, múltiplos.
-2. **Estructuración y optimización de portafolios** (sem 6–10): Markowitz, CAPM, multifactoriales, desempeño.
-3. **Macro y política monetaria en la valoración** (sem 11–15): ciclo y mercados, curva de rendimientos, transmisión monetaria, riesgo país.
+1. **Técnicas avanzadas de valorización** (sem 1-5): WACC, DCF (FCFF/FCFE), valor terminal, múltiplos.
+2. **Estructuración y optimización de portafolios** (sem 6-10): Markowitz, CAPM, multifactoriales, desempeño.
+3. **Macro y política monetaria en la valoración** (sem 11-15): ciclo y mercados, curva de rendimientos, transmisión monetaria, riesgo país.
 
 ## Cómo usar este repositorio
 

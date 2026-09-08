@@ -1,6 +1,6 @@
 # TR2: Propuesta de inversión ante un comité de gerencia
 
-**Entrega y presentación: semana 14** · Rúbrica sobre 20 puntos · Grupos de 2–3 estudiantes
+**Entrega y presentación: semana 14** · Rúbrica sobre 20 puntos · Grupos de 2-3 estudiantes
 **Instrumento del sílabo:** informe + presentación (rúbrica) · Pesa 50% de EP2 (EP2 = 0.5·PC2 + 0.5·TR2)
 
 ## La consigna

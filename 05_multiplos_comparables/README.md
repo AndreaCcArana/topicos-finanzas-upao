@@ -19,5 +19,6 @@ Screener de comparables sectorial con yfinance: múltiplos, mediana del peer gro
 | Archivo | Descripción |
 |---|---|
 | `clase05_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase05_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase05_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase05_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

@@ -18,5 +18,6 @@ Serie EMBIG Perú y análisis de escenarios sobre el DCF de la Unidad 1. **Esta 
 | Archivo | Descripción |
 |---|---|
 | `clase14_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase14_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase14_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase14_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

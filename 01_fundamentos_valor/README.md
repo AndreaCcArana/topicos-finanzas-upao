@@ -19,5 +19,6 @@ Funciones de VP/VPN/TIR en Python, descarga de primeros datos reales (yfinance +
 | Archivo | Descripción |
 |---|---|
 | `clase01_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase01_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase01_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase01_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

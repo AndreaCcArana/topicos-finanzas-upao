@@ -11,12 +11,13 @@
 
 ## Práctica en Python
 
-Modelo insignia del curso: r_IGBVL ~ r_cobre + ΔTC con las APIs de BCRPData (`utils/bcrp.py`) y FRED. **Esta semana: PC2 (U2, sem 6–10).**
+Modelo insignia del curso: r_IGBVL ~ r_cobre + ΔTC con las APIs de BCRPData (`utils/bcrp.py`) y FRED. **Esta semana: PC2 (U2, sem 6-10).**
 
 ## Contenido de la carpeta
 
 | Archivo | Descripción |
 |---|---|
 | `clase11_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase11_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase11_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase11_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

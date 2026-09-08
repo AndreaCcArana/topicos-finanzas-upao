@@ -19,5 +19,6 @@ Modelo DCF completo de una empresa con heatmap de sensibilidad g × WACC; la fun
 | Archivo | Descripción |
 |---|---|
 | `clase04_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase04_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase04_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase04_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

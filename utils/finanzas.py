@@ -63,6 +63,37 @@ def beta_reapalancar(beta_u: float, d_e: float, t: float) -> float:
 
 
 # ============================================================
+# Semana 3: Flujo de caja libre (FCFF y FCFE)
+# ============================================================
+
+def fcff_desde_ebit(ebit: float, t: float, dep: float, fcinv: float, wcinv: float) -> float:
+    """FCFF = EBIT(1-t) + Dep - FCInv - WCInv."""
+    return ebit * (1 - t) + dep - fcinv - wcinv
+
+
+def fcff_desde_ni(ni: float, ncc: float, interes: float, t: float, fcinv: float, wcinv: float) -> float:
+    """FCFF = NI + NCC + Int(1-t) - FCInv - WCInv."""
+    return ni + ncc + interes * (1 - t) - fcinv - wcinv
+
+
+def fcff_desde_cfo(cfo: float, interes: float, t: float, fcinv: float) -> float:
+    """FCFF = CFO + Int(1-t) - FCInv."""
+    return cfo + interes * (1 - t) - fcinv
+
+
+def fcfe_desde_fcff(fcff: float, interes: float, t: float, endeudamiento_neto: float) -> float:
+    """FCFE = FCFF - Int(1-t) + endeudamiento neto."""
+    return fcff - interes * (1 - t) + endeudamiento_neto
+
+
+def valor_crecimiento_constante(cf1: float, r: float, g: float) -> float:
+    """Valor presente de una perpetuidad creciente: V0 = CF1 / (r - g). Requiere g < r."""
+    if g >= r:
+        raise ValueError("El crecimiento g debe ser menor que la tasa de descuento r.")
+    return cf1 / (r - g)
+
+
+# ============================================================
 # Retornos y utilidades básicas
 # ============================================================
 
@@ -85,7 +116,7 @@ def resumen_regresion(modelo) -> pd.DataFrame:
 # ============================================================
 # Próximas semanas (se completan en clase)
 # ============================================================
-# Semana 4:  dcf(), valor_terminal()
+# Semana 4:  valor_terminal(), dcf_dos_etapas()
 # Semana 5:  multiplos()
 # Semana 7:  frontera_eficiente(), min_varianza(), portafolio_tangente()
 # Semana 10: sharpe(), treynor(), jensen(), var_historico(), var_parametrico()

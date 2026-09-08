@@ -19,5 +19,6 @@ Frontera eficiente con scipy.optimize + nube Monte Carlo; portafolio tangente co
 | Archivo | Descripción |
 |---|---|
 | `clase07_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase07_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase07_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase07_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

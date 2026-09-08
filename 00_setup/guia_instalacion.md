@@ -8,7 +8,7 @@ lang: es
 
 # Antes de empezar
 
-Esta guía te deja el entorno completo del curso instalado en tu PC en unos 30–40 minutos. Solo se hace **una vez**. Al terminar podrás abrir los notebooks del curso en Visual Studio Code, ejecutarlos y entregar tus prácticas mediante GitHub.
+Esta guía te deja el entorno completo del curso instalado en tu PC en unos 30-40 minutos. Solo se hace **una vez**. Al terminar podrás abrir los notebooks del curso en Visual Studio Code, ejecutarlos y entregar tus prácticas mediante GitHub.
 
 Necesitas: una PC con Windows 10/11 (al final hay notas para Mac), conexión a internet y un correo electrónico al que tengas acceso.
 

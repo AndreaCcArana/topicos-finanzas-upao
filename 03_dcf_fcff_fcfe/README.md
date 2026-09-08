@@ -12,12 +12,13 @@
 
 ## Práctica en Python
 
-Construcción de FCFF/FCFE histórico y proyectado desde estados financieros (yfinance) y valoración del equity. **Esta semana: PC1 (sem 1–3).**
+Construcción de FCFF/FCFE histórico y proyectado desde estados financieros (yfinance) y valoración del equity. **Esta semana: PC1 (sem 1-3).**
 
 ## Contenido de la carpeta
 
 | Archivo | Descripción |
 |---|---|
 | `clase03_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase03_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase03_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase03_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

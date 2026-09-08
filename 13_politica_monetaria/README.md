@@ -18,5 +18,6 @@ Mini event study: reacción de la curva, el tipo de cambio y el IGBVL a decision
 | Archivo | Descripción |
 |---|---|
 | `clase13_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase13_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase13_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase13_tarea.ipynb` | Entregable de la semana (fork + commit + push) |

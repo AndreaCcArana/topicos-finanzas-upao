@@ -7,17 +7,18 @@
 
 - Distinguir tasas spot, forward y de rendimiento al vencimiento.
 - Explicar las teorías de la estructura temporal y qué señala una curva invertida.
-- Construir curvas por bootstrapping y ajustar Nelson–Siegel.
+- Construir curvas por bootstrapping y ajustar Nelson-Siegel.
 - Interpretar expectativas de mercado a partir de la curva.
 
 ## Práctica en Python
 
-Curvas soberanas de Perú (BCRP) y EE.UU. (FRED): bootstrapping simple y ajuste Nelson–Siegel.
+Curvas soberanas de Perú (BCRP) y EE.UU. (FRED): bootstrapping simple y ajuste Nelson-Siegel.
 
 ## Contenido de la carpeta
 
 | Archivo | Descripción |
 |---|---|
 | `clase12_teoria.pdf` | Diapositivas de la clase (Beamer) |
+| `clase12_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase12_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase12_tarea.ipynb` | Entregable de la semana (fork + commit + push) |
