@@ -222,6 +222,73 @@ def anualizar(mu: float, sigma: float, periodos: int = 12) -> tuple[float, float
 
 
 # ============================================================
+# Semana 7: Markowitz y la frontera eficiente
+# ============================================================
+
+def _optimizar(objetivo, n: int, cortos: bool, w_max: float, restricciones=()):
+    """Minimiza una funcion de los pesos sujeto a que sumen 1 (uso interno)."""
+    from scipy.optimize import minimize
+    limites = None if cortos else [(0.0, w_max)] * n
+    escala = abs(objetivo(np.full(n, 1 / n))) or 1.0          # objetivo cerca de 1: SLSQP converge mejor
+    res = minimize(lambda w: objetivo(w) / escala, np.full(n, 1 / n), method="SLSQP", bounds=limites,
+                   constraints=[{"type": "eq", "fun": lambda w: w.sum() - 1}, *restricciones],
+                   options={"maxiter": 1000, "ftol": 1e-10})
+    factible = abs(res.x.sum() - 1) < 1e-6 and all(abs(r["fun"](res.x)) < 1e-6 for r in restricciones)
+    if not (res.success or factible):
+        raise RuntimeError(f"La optimizacion no convergio: {res.message}")
+    return res.x
+
+
+def _etiquetar(w, referencia):
+    return pd.Series(w, index=referencia.index) if isinstance(referencia, (pd.Series, pd.DataFrame)) else w
+
+
+def min_varianza(cov, cortos: bool = False, w_max: float = 1.0):
+    """Pesos del portafolio de minima varianza global.
+
+    cortos=False impide ventas en corto (pesos entre 0 y w_max). Solo necesita la
+    matriz de covarianzas: no depende de los retornos esperados.
+    """
+    c = np.asarray(cov, dtype=float)
+    w = _optimizar(lambda w: w @ c @ w, len(c), cortos, w_max)
+    return _etiquetar(w, cov)
+
+
+def portafolio_tangente(mu, cov, rf: float, cortos: bool = False, w_max: float = 1.0):
+    """Pesos del portafolio tangente: el de maximo ratio de Sharpe, (E[Rp] - rf) / sigma_p.
+
+    mu, cov y rf deben estar en las mismas unidades y la misma frecuencia (todo anual, por ejemplo).
+    """
+    m, c = np.asarray(mu, dtype=float), np.asarray(cov, dtype=float)
+    w = _optimizar(lambda w: -(w @ m - rf) / np.sqrt(w @ c @ w), len(m), cortos, w_max)
+    return _etiquetar(w, mu)
+
+
+def frontera_eficiente(mu, cov, n_puntos: int = 40, cortos: bool = False, w_max: float = 1.0) -> pd.DataFrame:
+    """Frontera eficiente: para cada retorno objetivo, el portafolio de menor riesgo.
+
+    Recorre desde el retorno del portafolio de minima varianza hasta el maximo alcanzable.
+    Devuelve un DataFrame con columnas retorno, riesgo y el peso de cada activo.
+    """
+    m, c = np.asarray(mu, dtype=float), np.asarray(cov, dtype=float)
+    nombres = list(mu.index) if isinstance(mu, pd.Series) else [f"w{i + 1}" for i in range(len(m))]
+    w_mv = np.asarray(min_varianza(c, cortos, w_max))
+    if cortos:
+        tope = m.max()
+    else:                                   # maximo retorno alcanzable respetando el tope por activo
+        orden, resto, tope = np.argsort(m)[::-1], 1.0, 0.0
+        for i in orden:
+            tope += min(w_max, resto) * m[i]
+            resto -= min(w_max, resto)
+    filas = []
+    for objetivo in np.linspace(w_mv @ m, tope, n_puntos):
+        w = _optimizar(lambda w: w @ c @ w, len(m), cortos, w_max,
+                       restricciones=[{"type": "eq", "fun": lambda w, o=objetivo: w @ m - o}])
+        filas.append([w @ m, np.sqrt(w @ c @ w), *w])
+    return pd.DataFrame(filas, columns=["retorno", "riesgo", *nombres])
+
+
+# ============================================================
 # Retornos y utilidades básicas
 # ============================================================
 
@@ -244,7 +311,6 @@ def resumen_regresion(modelo) -> pd.DataFrame:
 # ============================================================
 # Próximas semanas (se completan en clase)
 # ============================================================
-# Semana 7:  frontera_eficiente(), min_varianza(), portafolio_tangente()
 # Semana 10: sharpe(), treynor(), jensen(), var_historico(), var_parametrico()
 # Semana 12: nelson_siegel(), bootstrap_curva()
 
