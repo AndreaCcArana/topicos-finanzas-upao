@@ -53,3 +53,4 @@ Sobre el uso de IA: permitido, con la misma regla de la PC1. El texto del inform
 **¿En soles o en dólares?** En la moneda de los estados financieros de tu empresa, con la tasa de descuento consistente con esa moneda (regla de la semana 2).
 
 **¿Se puede entregar tarde?** Se aplica el criterio general del curso: la puntualidad es parte de la nota y la retroalimentación del TR1 se da en clase la semana 7, así que una entrega tardía la pierde.
+

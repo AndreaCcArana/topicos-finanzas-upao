@@ -6,13 +6,13 @@
 ## Objetivos de aprendizaje
 
 - Calcular el valor terminal por crecimiento perpetuo y por múltiplo de salida; discutir la disciplina del g de largo plazo.
-- Construir el puente Enterprise Value  Equity Value.
+- Construir el puente de Enterprise Value a Equity Value.
 - Realizar análisis de sensibilidad de la valoración ante cambios en g y WACC.
 - Interpretar los resultados de una valoración completa.
 
 ## Práctica en Python
 
-Modelo DCF completo de una empresa con heatmap de sensibilidad g × WACC; la función `dcf()` entra a `utils/finanzas.py`.
+Modelo DCF completo de una empresa con heatmap de sensibilidad g × WACC; las funciones `valor_terminal()`, `valor_terminal_multiplo()` y `dcf_dos_etapas()` entran a `utils/finanzas.py`.
 
 ## Contenido de la carpeta
 

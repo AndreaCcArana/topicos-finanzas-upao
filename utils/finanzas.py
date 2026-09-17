@@ -181,3 +181,4 @@ def resumen_regresion(modelo) -> pd.DataFrame:
 # Semana 7:  frontera_eficiente(), min_varianza(), portafolio_tangente()
 # Semana 10: sharpe(), treynor(), jensen(), var_historico(), var_parametrico()
 # Semana 12: nelson_siegel(), bootstrap_curva()
+

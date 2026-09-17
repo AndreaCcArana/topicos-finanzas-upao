@@ -22,3 +22,5 @@ Construcción de FCFF/FCFE histórico y proyectado desde estados financieros (yf
 | `clase03_apuntes.ipynb` | Apuntes: conceptos clave de la semana, con ejemplos ejecutables |
 | `clase03_practica.ipynb` | Notebook desarrollado en la sesión práctica |
 | `clase03_tarea.ipynb` | Entregable de la semana (fork + commit + push) |
+
+Material de la PC1: el examen de práctica y su solucionario están en [`mocks/`](../mocks/); el examen real se publica y se respalda en [`examenes/`](../examenes/).
