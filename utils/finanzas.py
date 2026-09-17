@@ -94,6 +94,68 @@ def valor_crecimiento_constante(cf1: float, r: float, g: float) -> float:
 
 
 # ============================================================
+# Semana 4: Valor terminal y DCF de dos etapas
+# ============================================================
+
+def valor_terminal(cf_n: float, r: float, g: float) -> float:
+    """Valor terminal en el anio n por perpetuidad creciente (Gordon).
+
+    Usa el flujo del anio siguiente: VT_n = cf_n * (1 + g) / (r - g).
+    El resultado queda expresado en unidades del anio n (falta descontarlo).
+    """
+    if g >= r:
+        raise ValueError("El crecimiento g debe ser menor que la tasa de descuento r.")
+    return cf_n * (1 + g) / (r - g)
+
+
+def valor_terminal_multiplo(metrica_n: float, multiplo: float) -> float:
+    """Valor terminal por multiplo de salida: VT_n = multiplo x metrica del anio n (p. ej. EV/EBITDA x EBITDA_n)."""
+    return multiplo * metrica_n
+
+
+def dcf_dos_etapas(flujos, r: float, vt: float) -> dict:
+    """DCF de dos etapas: valor presente de los flujos explicitos mas el VT descontado.
+
+    Parameters
+    ----------
+    flujos : lista de flujos de los anios 1..n
+    r : tasa de descuento (WACC para FCFF, Ke para FCFE)
+    vt : valor terminal expresado en unidades del anio n (p. ej. de valor_terminal())
+
+    Returns
+    -------
+    dict con vp_flujos, vp_vt, valor (la suma) y peso_vt (fraccion del valor que es VT).
+    """
+    n = len(flujos)
+    vp_flujos = sum(cf / (1 + r) ** i for i, cf in enumerate(flujos, start=1))
+    vp_vt = vt / (1 + r) ** n
+    valor = vp_flujos + vp_vt
+    return {"vp_flujos": vp_flujos, "vp_vt": vp_vt, "valor": valor, "peso_vt": vp_vt / valor}
+
+
+# ============================================================
+# Semana 5: Multiplos y comparables
+# ============================================================
+
+def per_justificado(payout: float, ke: float, g: float, forward: bool = False) -> float:
+    """P/E justificado por fundamentos (modelo de crecimiento constante).
+
+    Trailing: payout * (1+g) / (ke - g).  Forward: payout / (ke - g).
+    payout: fraccion de la utilidad que se reparte (usar capacidad de pago,
+    FCFE/NI, cuando difiera del dividendo).
+    """
+    if g >= ke:
+        raise ValueError("El crecimiento g debe ser menor que el costo del equity ke.")
+    base = payout / (ke - g)
+    return base if forward else base * (1 + g)
+
+
+def valor_por_multiplo_ev(multiplo: float, metrica: float, deuda_neta: float, acciones: float) -> float:
+    """Valor por accion implicito de un multiplo EV: (multiplo x metrica - deuda neta) / acciones."""
+    return (multiplo * metrica - deuda_neta) / acciones
+
+
+# ============================================================
 # Retornos y utilidades básicas
 # ============================================================
 
@@ -116,8 +178,6 @@ def resumen_regresion(modelo) -> pd.DataFrame:
 # ============================================================
 # Próximas semanas (se completan en clase)
 # ============================================================
-# Semana 4:  valor_terminal(), dcf_dos_etapas()
-# Semana 5:  multiplos()
 # Semana 7:  frontera_eficiente(), min_varianza(), portafolio_tangente()
 # Semana 10: sharpe(), treynor(), jensen(), var_historico(), var_parametrico()
 # Semana 12: nelson_siegel(), bootstrap_curva()
