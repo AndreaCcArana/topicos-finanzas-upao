@@ -156,6 +156,72 @@ def valor_por_multiplo_ev(multiplo: float, metrica: float, deuda_neta: float, ac
 
 
 # ============================================================
+# Semana 6: Riesgo y rendimiento
+# ============================================================
+
+def estadisticos_escenarios(probs, rets) -> tuple[float, float]:
+    """Retorno esperado y desviacion estandar de un activo a partir de escenarios.
+
+    probs: probabilidades (suman 1). rets: retorno del activo en cada escenario.
+    Devuelve (E[r], sigma) en las mismas unidades de rets.
+    """
+    p, r = np.asarray(probs, dtype=float), np.asarray(rets, dtype=float)
+    if abs(p.sum() - 1) > 1e-9:
+        raise ValueError("Las probabilidades deben sumar 1.")
+    e = float(p @ r)
+    return e, float(np.sqrt(p @ (r - e) ** 2))
+
+
+def covarianza_escenarios(probs, rets_a, rets_b) -> float:
+    """Covarianza entre dos activos a partir de escenarios: suma de p x desvio_a x desvio_b."""
+    p = np.asarray(probs, dtype=float)
+    a, b = np.asarray(rets_a, dtype=float), np.asarray(rets_b, dtype=float)
+    return float(p @ ((a - p @ a) * (b - p @ b)))
+
+
+def portafolio_dos_activos(w_a: float, mu_a: float, mu_b: float,
+                           sigma_a: float, sigma_b: float, rho: float) -> tuple[float, float]:
+    """Retorno esperado y riesgo de un portafolio de dos activos (w_b = 1 - w_a).
+
+    Devuelve (E[r_p], sigma_p). El riesgo NO es el promedio ponderado salvo que rho = 1.
+    """
+    w_b = 1 - w_a
+    var = (w_a * sigma_a) ** 2 + (w_b * sigma_b) ** 2 + 2 * w_a * w_b * rho * sigma_a * sigma_b
+    return w_a * mu_a + w_b * mu_b, float(np.sqrt(max(var, 0.0)))
+
+
+def peso_minima_varianza(sigma_a: float, sigma_b: float, rho: float) -> float:
+    """Peso del activo A en el portafolio de minima varianza de dos activos."""
+    cov = rho * sigma_a * sigma_b
+    return (sigma_b ** 2 - cov) / (sigma_a ** 2 + sigma_b ** 2 - 2 * cov)
+
+
+def riesgo_portafolio(pesos, cov) -> float:
+    """Desviacion estandar de un portafolio de n activos: raiz de w' x Cov x w."""
+    w = np.asarray(pesos, dtype=float)
+    return float(np.sqrt(w @ np.asarray(cov, dtype=float) @ w))
+
+
+def riesgo_equiponderado(n: int, sigma_media: float, rho_media: float) -> float:
+    """Riesgo de un portafolio de n activos con pesos iguales.
+
+    var_p = var_media / n + (n - 1) / n x cov_media. Cuando n crece, el primer
+    termino (idiosincratico) desaparece y queda el piso sistematico: la covarianza media.
+    """
+    var_media = sigma_media ** 2
+    cov_media = rho_media * var_media
+    return float(np.sqrt(var_media / n + (n - 1) / n * cov_media))
+
+
+def anualizar(mu: float, sigma: float, periodos: int = 12) -> tuple[float, float]:
+    """Anualiza media y desviacion estandar periodicas: mu x k y sigma x raiz(k).
+
+    periodos: 12 para datos mensuales, 52 semanales, 252 diarios.
+    """
+    return mu * periodos, sigma * float(np.sqrt(periodos))
+
+
+# ============================================================
 # Retornos y utilidades básicas
 # ============================================================
 
